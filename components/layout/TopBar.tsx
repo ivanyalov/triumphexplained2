@@ -25,7 +25,7 @@ export function TopBar() {
       zIndex: 99
     }}>
       <button 
-        aria-label="Profile"
+        aria-label="Профиль"
         style={{
           width: '40px',
           height: '40px',

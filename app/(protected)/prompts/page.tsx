@@ -8,10 +8,10 @@ export default function PromptsPage() {
   const router = useRouter()
 
   const prompts = [
-    { id: 'artifacts', name: 'Artifacts', icon: Package },
-    { id: 'ceremonies', name: 'Ceremonies', icon: Flame },
-    { id: 'objects', name: 'Objects', icon: Square },
-    { id: 'schema', name: 'Schema', icon: Ruler },
+    { id: 'artifacts', name: 'Артефакты', icon: Package },
+    { id: 'ceremonies', name: 'Церемонии', icon: Flame },
+    { id: 'objects', name: 'Объекты', icon: Square },
+    { id: 'schema', name: 'Схема', icon: Ruler },
   ]
 
   return (
@@ -23,7 +23,7 @@ export default function PromptsPage() {
         marginBottom: '48px',
         lineHeight: '1.2'
       }}>
-        Prompts
+        Промпты
       </h1>
       
       <div style={{

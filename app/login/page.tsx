@@ -29,7 +29,7 @@ export default function LoginPage() {
       router.push('/models')
       router.refresh()
     } catch (error: any) {
-      setError(error.message || 'Login error')
+      setError(error.message || 'Ошибка входа')
     } finally {
       setLoading(false)
     }
@@ -85,14 +85,14 @@ export default function LoginPage() {
             marginBottom: '8px',
             marginTop: 0
           }}>
-            Triumph Guide
+            Pelevin Explained
           </h1>
           <p style={{
             fontSize: '16px',
             color: '#6B7280',
             margin: 0
           }}>
-            Sign in to your account
+            Войдите в свой аккаунт
           </p>
         </div>
         
@@ -109,7 +109,7 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder="Email"
+              placeholder="Электронная почта"
               style={{
                 width: '100%',
                 height: '48px',
@@ -142,7 +142,7 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              placeholder="Password"
+              placeholder="Пароль"
               style={{
                 width: '100%',
                 height: '48px',
@@ -212,7 +212,7 @@ export default function LoginPage() {
               }
             }}
           >
-            {loading ? 'Signing in...' : 'Sign In'}
+            {loading ? 'Вход...' : 'Войти'}
           </button>
         </form>
       </div>

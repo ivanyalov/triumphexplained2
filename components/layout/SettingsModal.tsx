@@ -68,11 +68,11 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
             color: '#000000',
             margin: 0
           }}>
-            Settings
+            Настройки
           </h2>
           <button 
             onClick={onClose} 
-            aria-label="Close"
+            aria-label="Закрыть"
             style={{
               width: '32px',
               height: '32px',
@@ -125,7 +125,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
           }}
         >
           <LogOut size={18} />
-          <span>Log Out</span>
+          <span>Выйти из аккаунта</span>
         </button>
       </div>
     </div>

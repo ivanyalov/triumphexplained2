@@ -2,18 +2,23 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Box, FileText, Code, Settings } from 'lucide-react'
+import { Box, FileText, Code, Settings, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 import { SettingsModal } from './SettingsModal'
 
-export function Sidebar() {
+interface SidebarProps {
+  isCollapsed?: boolean
+  onToggleCollapse?: () => void
+}
+
+export function Sidebar({ isCollapsed = false, onToggleCollapse }: SidebarProps) {
   const pathname = usePathname()
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
 
   const navItems = [
-    { path: '/models', label: 'Models', icon: Box },
-    { path: '/prompts', label: 'Prompts', icon: FileText },
-    { path: '/functions', label: 'Functions', icon: Code },
+    { path: '/models', label: 'Модели', icon: Box },
+    { path: '/prompts', label: 'Промпты', icon: FileText },
+    { path: '/functions', label: 'Функции', icon: Code },
   ]
 
   return (
@@ -22,7 +27,7 @@ export function Sidebar() {
         position: 'fixed',
         left: 0,
         top: 0,
-        width: '260px',
+        width: isCollapsed ? '72px' : '260px',
         height: '100vh',
         backgroundColor: '#FFFFFF',
         borderRight: '1px solid rgba(0, 0, 0, 0.08)',
@@ -34,44 +39,35 @@ export function Sidebar() {
         {/* Logo */}
         <div style={{
           paddingTop: '24px',
-          paddingLeft: '24px',
+          paddingLeft: isCollapsed ? '16px' : '24px',
           paddingBottom: '0'
         }}>
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '12px'
+            gap: '0',
+            justifyContent: 'flex-start'
           }}>
-            <div style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '12px',
-              background: 'linear-gradient(135deg, #000000 0%, #1F2937 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)'
-            }}>
-              <Box size={24} color="#FFFFFF" />
-            </div>
-            <span style={{
-              fontSize: '20px',
-              fontWeight: 700,
-              background: 'linear-gradient(135deg, #000000 0%, #1F2937 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
-              Triumph Guide
-            </span>
+            {!isCollapsed && (
+              <span style={{
+                fontSize: '20px',
+                fontWeight: 700,
+                background: 'linear-gradient(135deg, #000000 0%, #1F2937 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>
+                Pelevin Explained
+              </span>
+            )}
           </div>
         </div>
 
         {/* Navigation */}
         <nav style={{
           marginTop: '48px',
-          paddingLeft: '20px',
-          paddingRight: '20px',
+          paddingLeft: isCollapsed ? '12px' : '20px',
+          paddingRight: isCollapsed ? '12px' : '20px',
           display: 'flex',
           flexDirection: 'column',
           gap: '8px',
@@ -88,11 +84,11 @@ export function Sidebar() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '12px',
+                  gap: isCollapsed ? '0' : '12px',
                   height: '48px',
-                  width: '220px',
-                  paddingLeft: '16px',
-                  paddingRight: '16px',
+                  width: isCollapsed ? '48px' : '220px',
+                  paddingLeft: isCollapsed ? '0' : '16px',
+                  paddingRight: isCollapsed ? '0' : '16px',
                   borderRadius: '12px',
                   backgroundColor: isActive 
                     ? 'linear-gradient(135deg, #000000 0%, #1F2937 100%)' 
@@ -104,7 +100,8 @@ export function Sidebar() {
                   textDecoration: 'none',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   boxShadow: isActive ? '0 4px 12px rgba(0, 0, 0, 0.1)' : 'none',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  justifyContent: isCollapsed ? 'center' : 'flex-start'
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
@@ -121,53 +118,82 @@ export function Sidebar() {
                   size={24} 
                   color={isActive ? '#FFFFFF' : '#6B7280'} 
                 />
-                <span style={{
-                  fontSize: '16px',
-                  fontWeight: isActive ? 600 : 500
-                }}>
-                  {item.label}
-                </span>
+                {!isCollapsed && (
+                  <span style={{
+                    fontSize: '16px',
+                    fontWeight: isActive ? 600 : 500
+                  }}>
+                    {item.label}
+                  </span>
+                )}
               </Link>
             )
           })}
         </nav>
 
-        {/* Settings Button */}
+        {/* Bottom Actions */}
         <div style={{
-          paddingLeft: '20px',
-          paddingRight: '20px',
-          paddingBottom: '24px'
+          paddingLeft: isCollapsed ? '12px' : '20px',
+          paddingRight: isCollapsed ? '12px' : '20px',
+          paddingBottom: '24px',
+          display: 'flex',
+          gap: '8px',
+          alignItems: 'center',
+          justifyContent: isCollapsed ? 'center' : 'space-between'
         }}>
           <button 
-            onClick={() => setIsSettingsOpen(true)}
+            onClick={onToggleCollapse}
+            aria-label={isCollapsed ? 'Развернуть боковую панель' : 'Свернуть боковую панель'}
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '12px',
-              height: '48px',
-              width: '220px',
-              paddingLeft: '16px',
-              paddingRight: '16px',
+              justifyContent: 'center',
+              height: '40px',
+              width: '40px',
               borderRadius: '12px',
-              backgroundColor: 'transparent',
-              border: 'none',
-              color: '#000000',
+              border: '1px solid rgba(0,0,0,0.08)',
+              backgroundColor: '#FFFFFF',
               cursor: 'pointer',
-              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-              fontFamily: 'inherit',
-              fontSize: '16px',
-              fontWeight: 500
+              transition: 'all 0.2s ease-out'
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#F9FAFB'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent'
-            }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#F9FAFB' }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#FFFFFF' }}
           >
-            <Settings size={24} color="#6B7280" />
-            <span>Settings</span>
+            {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
           </button>
+
+          {!isCollapsed && (
+            <button 
+              onClick={() => setIsSettingsOpen(true)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                height: '48px',
+                width: '220px',
+                paddingLeft: '16px',
+                paddingRight: '16px',
+                borderRadius: '12px',
+                backgroundColor: 'transparent',
+                border: 'none',
+                color: '#000000',
+                cursor: 'pointer',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                fontFamily: 'inherit',
+                fontSize: '16px',
+                fontWeight: 500
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#F9FAFB'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent'
+              }}
+            >
+              <Settings size={24} color="#6B7280" />
+              <span>Настройки</span>
+            </button>
+          )}
         </div>
       </aside>
 

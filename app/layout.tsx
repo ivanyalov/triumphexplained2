@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Triumph Guide",
+  title: "Pelevin Explained",
   description: "Премиальная платформа для работы с AI моделями, промптами и функциями",
 };
 

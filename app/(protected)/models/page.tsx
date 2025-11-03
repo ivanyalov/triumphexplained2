@@ -9,10 +9,10 @@ export default function ModelsPage() {
 
   const models = [
     { id: 'gpt5', name: 'GPT5', icon: Box },
-    { id: 'assistant', name: 'Assistant', icon: Brain },
-    { id: 'experimenter', name: 'Experimenter', icon: FlaskConical },
-    { id: 'writer', name: 'Writer', icon: MessageSquare },
-    { id: 'artist', name: 'Artist', icon: Sparkles },
+    { id: 'assistant', name: 'Ассистент', icon: Brain },
+    { id: 'experimenter', name: 'Экспериментатор', icon: FlaskConical },
+    { id: 'writer', name: 'Писатель', icon: MessageSquare },
+    { id: 'artist', name: 'Художник', icon: Sparkles },
   ]
 
   return (
@@ -24,7 +24,7 @@ export default function ModelsPage() {
         marginBottom: '48px',
         lineHeight: '1.2'
       }}>
-        Models
+        Модели
       </h1>
       
       <div style={{

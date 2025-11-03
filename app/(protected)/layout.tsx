@@ -1,22 +1,28 @@
+'use client'
+
 import { Sidebar } from '@/components/layout/Sidebar'
-import { TopBar } from '@/components/layout/TopBar'
+import { useState } from 'react'
 
 export default function ProtectedLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const [isCollapsed, setIsCollapsed] = useState(false)
+
+  const sidebarWidth = isCollapsed ? 72 : 260
   return (
     <div style={{
       minHeight: '100vh',
       backgroundColor: '#FFFFFF'
     }}>
-      <Sidebar />
-      <TopBar />
+      <Sidebar 
+        isCollapsed={isCollapsed}
+        onToggleCollapse={() => setIsCollapsed((v) => !v)}
+      />
       <main style={{
-        marginLeft: '260px',
-        marginTop: '72px',
-        minHeight: 'calc(100vh - 72px)',
+        marginLeft: `${sidebarWidth}px`,
+        minHeight: '100vh',
         position: 'relative'
       }}>
         <div className="decorative-background" style={{
