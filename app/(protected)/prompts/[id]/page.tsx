@@ -20,11 +20,11 @@ export default function PromptDetailPage() {
     return (
       <div>
         <div style={{
-          backgroundColor: '#FFFFFF',
-          border: '1px solid rgba(0, 0, 0, 0.08)',
+          background: 'linear-gradient(180deg, #FFFFFF 0%, #F7F9FC 100%)',
+          border: '1px solid rgba(0, 0, 0, 0.1)',
           borderRadius: '20px',
           padding: '48px',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)'
+          boxShadow: '0 8px 28px rgba(0, 0, 0, 0.08)'
         }}>
           <h2 style={{
             fontSize: '40px',
@@ -38,13 +38,13 @@ export default function PromptDetailPage() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            color: '#000000',
+            color: '#FFFFFF',
             textDecoration: 'none',
             fontSize: '16px',
             transition: 'color 0.2s ease-out'
           }}
-          onMouseEnter={(e) => e.currentTarget.style.color = '#6B7280'}
-          onMouseLeave={(e) => e.currentTarget.style.color = '#000000'}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#D1D5DB'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#FFFFFF'}
           >
             <ArrowLeft size={18} />
             Вернуться к промптам
@@ -65,15 +65,15 @@ export default function PromptDetailPage() {
           display: 'inline-flex',
           alignItems: 'center',
           gap: '8px',
-          color: '#000000',
+          color: '#FFFFFF',
           textDecoration: 'none',
           fontSize: '16px',
           marginBottom: '32px',
           transition: 'color 0.2s ease-out',
           cursor: 'pointer'
         }}
-        onMouseEnter={(e) => e.currentTarget.style.color = '#6B7280'}
-        onMouseLeave={(e) => e.currentTarget.style.color = '#000000'}
+        onMouseEnter={(e) => e.currentTarget.style.color = '#D1D5DB'}
+        onMouseLeave={(e) => e.currentTarget.style.color = '#FFFFFF'}
       >
         <ArrowLeft size={18} />
         <span>Назад</span>
@@ -81,11 +81,11 @@ export default function PromptDetailPage() {
 
       {/* Header Card */}
       <div style={{
-        backgroundColor: '#FFFFFF',
-        border: '1px solid rgba(0, 0, 0, 0.08)',
+        background: 'linear-gradient(180deg, #FFFFFF 0%, #F6F8FB 100%)',
+        border: '1px solid rgba(0, 0, 0, 0.1)',
         borderRadius: '20px',
         padding: '40px',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
+        boxShadow: '0 8px 28px rgba(0, 0, 0, 0.08)',
         display: 'flex',
         alignItems: 'center',
         gap: '24px'

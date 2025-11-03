@@ -2,54 +2,22 @@
 
 import { User } from 'lucide-react'
 
-export function TopBar() {
+interface TopBarProps {
+  leftOffset?: number
+}
+
+export function TopBar({ leftOffset = 260 }: TopBarProps) {
   // Get user initials (placeholder - you can get from auth context)
   const userInitials = 'U'
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: '260px',
-      right: 0,
-      height: '72px',
-      backgroundColor: 'rgba(255, 255, 255, 0.8)',
-      backdropFilter: 'blur(20px)',
-      WebkitBackdropFilter: 'blur(20px)',
-      borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
-      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'flex-end',
-      paddingRight: '32px',
-      zIndex: 99
-    }}>
-      <button 
+    <div 
+      className="fixed top-0 right-0 h-[72px] bg-gradient-to-b from-black/75 to-gray-800/75 backdrop-blur-xl border-b border-white/10 shadow-lg flex items-center justify-end pr-8 z-[99]"
+      style={{ left: `${leftOffset}px` }}
+    >
+      <button
         aria-label="Профиль"
-        style={{
-          width: '40px',
-          height: '40px',
-          borderRadius: '50%',
-          backgroundColor: '#FFFFFF',
-          border: '1px solid rgba(0, 0, 0, 0.08)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          transition: 'all 0.2s ease-out',
-          color: '#000000',
-          fontSize: '14px',
-          fontWeight: 600,
-          fontFamily: 'inherit'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = '#F9FAFB'
-          e.currentTarget.style.transform = 'scale(1.05)'
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = '#FFFFFF'
-          e.currentTarget.style.transform = 'scale(1)'
-        }}
+        className="h-10 w-10 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold flex items-center justify-center transition-transform transition-colors duration-200 hover:bg-white/20 hover:scale-105"
       >
         {userInitials}
       </button>

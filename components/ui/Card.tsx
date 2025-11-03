@@ -12,26 +12,26 @@ export function Card({ icon, title, description, onClick }: CardProps) {
     <div 
       onClick={onClick}
       style={{
-        backgroundColor: '#FFFFFF',
-        border: '1px solid rgba(0, 0, 0, 0.08)',
+        background: 'linear-gradient(180deg, #FFFFFF 0%, #F7F8FB 100%)',
+        border: '1px solid rgba(0, 0, 0, 0.1)',
         borderRadius: '20px',
         padding: '40px',
         cursor: 'pointer',
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
+        boxShadow: '0 6px 24px rgba(0, 0, 0, 0.08)',
         height: '100%',
         display: 'flex',
         flexDirection: 'column'
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = 'translateY(-4px)'
-        e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.12)'
-        e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.15)'
+        e.currentTarget.style.boxShadow = '0 14px 44px rgba(0, 0, 0, 0.14)'
+        e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.18)'
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = 'translateY(0)'
-        e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.06)'
-        e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)'
+        e.currentTarget.style.boxShadow = '0 6px 24px rgba(0, 0, 0, 0.08)'
+        e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.1)'
       }}
       onMouseDown={(e) => {
         e.currentTarget.style.transform = 'translateY(-4px) scale(0.98)'

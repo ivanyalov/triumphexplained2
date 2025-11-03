@@ -66,15 +66,15 @@ export default function ModelDetailPage() {
           display: 'inline-flex',
           alignItems: 'center',
           gap: '8px',
-          color: '#000000',
+          color: '#FFFFFF',
           textDecoration: 'none',
           fontSize: '16px',
           marginBottom: '32px',
           transition: 'color 0.2s ease-out',
           cursor: 'pointer'
         }}
-        onMouseEnter={(e) => e.currentTarget.style.color = '#6B7280'}
-        onMouseLeave={(e) => e.currentTarget.style.color = '#000000'}
+        onMouseEnter={(e) => e.currentTarget.style.color = '#D1D5DB'}
+        onMouseLeave={(e) => e.currentTarget.style.color = '#FFFFFF'}
       >
         <ArrowLeft size={18} />
         <span>Назад</span>
@@ -82,11 +82,11 @@ export default function ModelDetailPage() {
 
       {/* Header Card */}
       <div style={{
-        backgroundColor: '#FFFFFF',
-        border: '1px solid rgba(0, 0, 0, 0.08)',
+        background: 'linear-gradient(180deg, #FFFFFF 0%, #F7F8FB 100%)',
+        border: '1px solid rgba(0, 0, 0, 0.1)',
         borderRadius: '20px',
         padding: '40px',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
+        boxShadow: '0 8px 28px rgba(0, 0, 0, 0.08)',
         display: 'flex',
         alignItems: 'center',
         gap: '24px',
@@ -126,11 +126,11 @@ export default function ModelDetailPage() {
         }}>
           {/* Описание */}
           <div style={{
-            backgroundColor: '#FFFFFF',
-            border: '1px solid rgba(0, 0, 0, 0.08)',
+            background: 'linear-gradient(180deg, #FFFFFF 0%, #F7F8FB 100%)',
+            border: '1px solid rgba(0, 0, 0, 0.1)',
             borderRadius: '20px',
             padding: '48px',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
+            boxShadow: '0 8px 28px rgba(0, 0, 0, 0.08)',
             width: '100%'
           }}>
             <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#000000', marginBottom: '24px', marginTop: 0 }}>Описание</h2>
@@ -709,11 +709,11 @@ export default function ModelDetailPage() {
         </div>
       ) : id === 'gpt5' ? (
         <div style={{
-          backgroundColor: '#FFFFFF',
-          border: '1px solid rgba(0, 0, 0, 0.08)',
+          background: 'linear-gradient(180deg, #FFFFFF 0%, #F7F9FC 100%)',
+          border: '1px solid rgba(0, 0, 0, 0.1)',
           borderRadius: '20px',
           padding: '48px',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
+          boxShadow: '0 8px 28px rgba(0, 0, 0, 0.08)',
           marginTop: '24px',
           width: '100%'
         }}>

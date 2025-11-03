@@ -23,19 +23,13 @@ export function Sidebar({ isCollapsed = false, onToggleCollapse }: SidebarProps)
 
   return (
     <>
-      <aside style={{
-        position: 'fixed',
-        left: 0,
-        top: 0,
-        width: isCollapsed ? '72px' : '260px',
-        height: '100vh',
-        backgroundColor: '#FFFFFF',
-        borderRight: '1px solid rgba(0, 0, 0, 0.08)',
-        boxShadow: '2px 0 8px rgba(0, 0, 0, 0.05)',
-        display: 'flex',
-        flexDirection: 'column',
-        zIndex: 100
-      }}>
+      <aside className="fixed left-0 top-0 h-screen shadow-lg z-[100]"
+        style={{
+          width: isCollapsed ? '72px' : '260px',
+          background: 'linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(17,24,39,0.92) 100%)',
+          borderRight: '1px solid rgba(255,255,255,0.08)'
+        }}
+      >
         {/* Logo */}
         <div style={{
           paddingTop: '24px',
@@ -52,10 +46,7 @@ export function Sidebar({ isCollapsed = false, onToggleCollapse }: SidebarProps)
               <span style={{
                 fontSize: '20px',
                 fontWeight: 700,
-                background: 'linear-gradient(135deg, #000000 0%, #1F2937 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
+                color: '#F9FAFB'
               }}>
                 Pelevin Explained
               </span>
@@ -90,22 +81,19 @@ export function Sidebar({ isCollapsed = false, onToggleCollapse }: SidebarProps)
                   paddingLeft: isCollapsed ? '0' : '16px',
                   paddingRight: isCollapsed ? '0' : '16px',
                   borderRadius: '12px',
-                  backgroundColor: isActive 
-                    ? 'linear-gradient(135deg, #000000 0%, #1F2937 100%)' 
-                    : 'transparent',
                   background: isActive 
-                    ? 'linear-gradient(135deg, #000000 0%, #1F2937 100%)' 
+                    ? 'linear-gradient(135deg, #111827 0%, #0B1220 100%)' 
                     : 'transparent',
-                  color: isActive ? '#FFFFFF' : '#000000',
+                  color: isActive ? '#FFFFFF' : '#D1D5DB',
                   textDecoration: 'none',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                  boxShadow: isActive ? '0 4px 12px rgba(0, 0, 0, 0.1)' : 'none',
+                  boxShadow: isActive ? '0 6px 18px rgba(0, 0, 0, 0.4)' : 'none',
                   cursor: 'pointer',
                   justifyContent: isCollapsed ? 'center' : 'flex-start'
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
-                    e.currentTarget.style.backgroundColor = '#F9FAFB'
+                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.06)'
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -116,12 +104,13 @@ export function Sidebar({ isCollapsed = false, onToggleCollapse }: SidebarProps)
               >
                 <Icon 
                   size={24} 
-                  color={isActive ? '#FFFFFF' : '#6B7280'} 
+                  color={isActive ? '#FFFFFF' : '#9CA3AF'} 
                 />
                 {!isCollapsed && (
                   <span style={{
                     fontSize: '16px',
-                    fontWeight: isActive ? 600 : 500
+                    fontWeight: isActive ? 600 : 500,
+                    color: isActive ? '#FFFFFF' : '#E5E7EB'
                   }}>
                     {item.label}
                   </span>
@@ -151,13 +140,13 @@ export function Sidebar({ isCollapsed = false, onToggleCollapse }: SidebarProps)
               height: '40px',
               width: '40px',
               borderRadius: '12px',
-              border: '1px solid rgba(0,0,0,0.08)',
-              backgroundColor: '#FFFFFF',
+              border: '1px solid rgba(255,255,255,0.12)',
+              backgroundColor: 'rgba(255,255,255,0.06)',
               cursor: 'pointer',
               transition: 'all 0.2s ease-out'
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#F9FAFB' }}
-            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#FFFFFF' }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.06)' }}
           >
             {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
           </button>
@@ -176,7 +165,7 @@ export function Sidebar({ isCollapsed = false, onToggleCollapse }: SidebarProps)
                 borderRadius: '12px',
                 backgroundColor: 'transparent',
                 border: 'none',
-                color: '#000000',
+                color: '#E5E7EB',
                 cursor: 'pointer',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 fontFamily: 'inherit',
@@ -184,13 +173,13 @@ export function Sidebar({ isCollapsed = false, onToggleCollapse }: SidebarProps)
                 fontWeight: 500
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#F9FAFB'
+                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.06)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = 'transparent'
               }}
             >
-              <Settings size={24} color="#6B7280" />
+              <Settings size={24} color="#9CA3AF" />
               <span>Настройки</span>
             </button>
           )}

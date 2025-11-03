@@ -14,7 +14,7 @@ export default function ProtectedLayout({
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#FFFFFF'
+      background: 'transparent'
     }}>
       <Sidebar 
         isCollapsed={isCollapsed}
