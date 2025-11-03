@@ -1,12 +1,19 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const response = NextResponse.next()
-  
+
+  // If envs are missing in prod, skip auth to avoid hard 500s
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseAnon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  if (!supabaseUrl || !supabaseAnon) {
+    return response
+  }
+
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    supabaseUrl,
+    supabaseAnon,
     {
       cookies: {
         get(name: string) {
@@ -40,4 +47,5 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 }
+
 
